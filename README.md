@@ -13,8 +13,8 @@ To run the script you need:
 
 The script will also install, if not already present, two R packages:
 
-* Caret [https://cran.r-project.org/package=caret]
-* LiblineaR [https://cran.r-project.org/package=LiblineaR] 
+* [Caret](https://cran.r-project.org/package=caret)
+* [LiblineaR](https://cran.r-project.org/package=LiblineaR)
 
 To classify your data using Senti4SD
 
