@@ -1,10 +1,7 @@
 # Senti4SD
 
-### What is Senti4SD for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Senti4SD is an emotion polarity classifier specifically trained to support sentiment analysis in developers' communication channels. 
+Senti4SD is trained and evaluated on a gold standard of over 4K posts extracted from Stack Overflow. 
 
 
 ### How do I get set up? ###
