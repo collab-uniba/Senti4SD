@@ -31,7 +31,7 @@ where inputCorpus.csv is a file containing the data you want to classify, consid
 To see how the tool work run as example 
 ```
 #!sh
-sh classificationTask.sh sample.csv
+sh classificationTask.sh Sample.csv
 
 ```
 
