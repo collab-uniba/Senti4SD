@@ -3,6 +3,11 @@
 Senti4SD is an emotion polarity classifier specifically trained to support sentiment analysis in developers' communication channels. 
 Senti4SD is trained and evaluated on a gold standard of over 4K posts extracted from Stack Overflow. 
 
+**NOTE**: You will need to install [Git LFS](https://git-lfs.github.com) extension to check out this project. Once installed and initialized, simply run:
+
+```bash
+$ git lfs clone https://github.com/collab-uniba/Senti4SD.git
+```
 
 ### How do I get set up? ###
 
@@ -19,16 +24,14 @@ The script will also install, if not already present, two R packages:
 To classify your data using Senti4SD
 
 ```
-#!sh
-sh classificationTask.sh inputCorpus.csv outputPredictions.csv
+$ ./classificationTask.sh inputCorpus.csv outputPredictions.csv
 
 ```
 where inputCorpus.csv is a file containing the data you want to classify, considering a document for each line, and outputPredictions.csv is where the predictions will be saved. This last parameter is optional, if not present the output of the classification will be saved in a file called "predictions.csv"
 
 To see how the tool work run as example 
 ```
-#!sh
-sh classificationTask.sh Sample.csv
+$ ./classificationTask.sh Sample.csv
 
 ```
 
