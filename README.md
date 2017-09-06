@@ -26,21 +26,21 @@ The script will also install, if not already present, three R packages:
 * [e1071](https://cran.r-project.org/package=e1071)
 
 ### Running ###
-To classify your data using Senti4SD
+To classify your data using Senti4SD, execute the following instruction from the command line:
 
 ```bash
 $ ./classificationTask.sh inputCorpus.csv outputPredictions.csv
 
 ```
-where inputCorpus.csv is a file containing the data you want to classify, considering a document for each line, and outputPredictions.csv is where the predictions will be saved. This last parameter is optional, if not present the output of the classification will be saved in a file called "predictions.csv"
+where `inputCorpus.csv` is a file containing the data you want to classify, considering a document for each line, and `outputPredictions.csv` is where the predictions will be saved. This last parameter is optional, if not present the output of the classification will be saved in a file called `predictions.csv`.
 
-To see how the tool work run as example 
+To see how the tool works, you can execute the following example:
 ```
 $ ./classificationTask.sh Sample.csv
 
 ```
 
-It will create as output a csv file called `predictions.csv`
+This will produce as output a csv file called `predictions.csv`.
 
 ### Who do I talk to? ###
 
