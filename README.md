@@ -40,7 +40,7 @@ $ ./classificationTask.sh Sample.csv
 
 ```
 
-It will create as output a csv file called "predictions.csv"
+It will create as output a csv file called `predictions.csv`
 
 ### Who do I talk to? ###
 
