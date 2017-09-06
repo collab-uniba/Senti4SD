@@ -25,6 +25,7 @@ The script will also install, if not already present, three R packages:
 * [LiblineaR](https://cran.r-project.org/package=LiblineaR)
 * [e1071](https://cran.r-project.org/package=e1071)
 
+### Running ###
 To classify your data using Senti4SD
 
 ```bash
