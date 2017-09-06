@@ -10,20 +10,24 @@ $ git lfs clone https://github.com/collab-uniba/Senti4SD.git
 ```
 
 ### How do I get set up? ###
-
+To set up the tool, simply run the following script from the command line:
+```bash
+$ ./requirements.sh
+```
 To run the script you need:
 
 * Java 8
 * R
 
-The script will also install, if not already present, two R packages:
+The script will also install, if not already present, three R packages:
 
 * [Caret](https://cran.r-project.org/package=caret)
 * [LiblineaR](https://cran.r-project.org/package=LiblineaR)
+* [e1071](https://cran.r-project.org/package=e1071)
 
 To classify your data using Senti4SD
 
-```
+```bash
 $ ./classificationTask.sh inputCorpus.csv outputPredictions.csv
 
 ```
