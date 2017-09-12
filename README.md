@@ -5,7 +5,7 @@ Senti4SD is trained and evaluated on a gold standard of over 4K posts extracted 
 
 ## Fair Use Policy
 Please, cite the following paper if you intend to use our tool for your own research:
-> F. Calefato, F. Lanubile, F. Maiorano N. Novielli. “Sentiment Polarity Detection for Software Development” To appear in *Empirical Software Engineering*, DOI: 10.1007/s10664-017-9546-9
+> F. Calefato, F. Lanubile, F. Maiorano N. Novielli. “Sentiment Polarity Detection for Software Development”, to appear in *Empirical Software Engineering*, DOI: 10.1007/s10664-017-9546-9
 
 **NOTE**: You will need to install [Git LFS](https://git-lfs.github.com) extension to check out this project. Once installed and initialized, simply run:
 
