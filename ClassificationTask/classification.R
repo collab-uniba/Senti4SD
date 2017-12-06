@@ -1,5 +1,16 @@
+#Classification over an input dataset using an input liblinear model (or default SO model if not present)
+
 # enable commandline arguments from script launched using Rscript
 args<-commandArgs(TRUE)
+
+# test if there is at least one argument: if not, return an error
+if (length(args)<2) {
+  stop("At least two argument must be supplied.\n", call.=FALSE)
+} else if (length(args)==2) {
+  cat("No LiblinearModel supplied. Default StackOverflow model will be used.\n")
+  # default model file
+  args[3] = "./modelLiblinear.Rda"
+}
 
 # Params
 csv_file <- args[1]
@@ -21,18 +32,18 @@ SO <- SO[ , !(names(SO) %in% excluded_predictors)]
 # if any, exclude rows with Na, NaN and Inf (missing values)
 SO <- na.omit(SO)
 
-load(file = "./modelLiblinear.Rda")
+load(file = args[3])
 
 p <- predict(m,SO)
 pred = p$predictions
 
 
 predictions <- c()
-  for (i in 0:length(temp[,"id"])){
-    predictions <- c(predictions, paste(temp[i,"id"],pred[i], sep=","))
-  }
-  # save errors to text file
-  cat("Row,Predicted\n",file= output_file)
-  write.table(predictions, file= output_file, quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE)
+for (i in 0:length(temp[,"id"])){
+  predictions <- c(predictions, paste(temp[i,"id"],pred[i], sep=","))
+}
+# save errors to text file
+cat("Row,Predicted\n",file= output_file)
+write.table(predictions, file= output_file, quote = FALSE, row.names = FALSE, col.names = FALSE, append=TRUE)
 
 cat(paste(output_file, "was successfully created\n", sep=" "))
