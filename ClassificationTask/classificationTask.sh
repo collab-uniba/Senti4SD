@@ -21,10 +21,10 @@ fi
 #-bl file_name: bigram's list to use for feature extraction. If not present default Senti4SD bigram's list will be used [optional]
 
 java -jar Senti4SD.jar -F A -i $1 -W dsm.bin -oc extractedFeatures.csv -vd 600
+
 #classificate using as model "modelLiblinear.Rda", builded with "LiblineaR", 
 #using model "L2-regularized L2-loss support vector classification (dual)", 
 #with C=0.05 and as input "CBOW600_Bigram_NoVectDim.csv" 
-
 #classification.R will output the result of the classification to $outputFile
 Rscript classification.R extractedFeatures.csv $outputFile
 rm extractedFeatures.csv
