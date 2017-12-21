@@ -1,14 +1,17 @@
 #!/bin/bash
+SCRIPTDIR=$(dirname "$0")
+echo $SCRIPTDIR
+
 if [ -z "$1" ]; then
     echo "Usage: classificationTash.sh input.csv [predictions.csv]"
 else
 if [ ! -f $1 ]; then
     echo "File $1 not found!"
 else
-outputFile="$2"
+outputFile="$SCRIPTDIR/$2"
 if [ -z "$2" ]
-then 
-	outputFile="predictions.csv"
+then
+	outputFile="$SCRIPTDIR/predictions.csv"
 fi
 
 #-F A: all features to be considered
@@ -20,13 +23,13 @@ fi
 #-ul file_name: unigram's list to use for feature extraction. If not present default Senti4SD unigram's list will be used [optional]
 #-bl file_name: bigram's list to use for feature extraction. If not present default Senti4SD bigram's list will be used [optional]
 
-java -jar Senti4SD.jar -F A -i $1 -W dsm.bin -oc extractedFeatures.csv -vd 600
+java -jar $SCRIPTDIR/Senti4SD.jar -F A -i $1 -W $SCRIPTDIR/dsm.bin -oc $SCRIPTDIR/extractedFeatures.csv -vd 600
 
-#classificate using as model "modelLiblinear.Rda", builded with "LiblineaR", 
-#using model "L2-regularized L2-loss support vector classification (dual)", 
-#with C=0.05 and as input "CBOW600_Bigram_NoVectDim.csv" 
+#classificate using as model "modelLiblinear.Rda", builded with "LiblineaR",
+#using model "L2-regularized L2-loss support vector classification (dual)",
+#with C=0.05 and as input "CBOW600_Bigram_NoVectDim.csv"
 #classification.R will output the result of the classification to $outputFile
-Rscript classification.R extractedFeatures.csv $outputFile
-rm extractedFeatures.csv
+Rscript $SCRIPTDIR/classification.R $SCRIPTDIR/extractedFeatures.csv $outputFile
+rm $SCRIPTDIR/extractedFeatures.csv
 fi
 fi

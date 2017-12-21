@@ -1,5 +1,11 @@
 #Classification over an input dataset using an input liblinear model (or default SO model if not present)
 
+initial.options <- commandArgs(trailingOnly = FALSE)
+file.arg.name <- "--file="
+script.name <- sub(file.arg.name, "", initial.options[grep(file.arg.name, initial.options)])
+script.basename <- dirname(script.name)
+path <- paste(getwd(),script.basename,sep="/")
+
 # enable commandline arguments from script launched using Rscript
 args<-commandArgs(TRUE)
 
@@ -9,7 +15,7 @@ if (length(args)<2) {
 } else if (length(args)==2) {
   cat("No LiblinearModel supplied. Default StackOverflow model will be used.\n")
   # default model file
-  args[3] = "./modelLiblinear.Rda"
+  args[3] = paste(path,"modelLiblinear.Rda",sep="/")
 }
 
 # Params
