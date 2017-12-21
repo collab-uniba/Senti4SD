@@ -22,19 +22,19 @@ library(e1071) # for normality adjustment
 library(LiblineaR)
 
 # comma delimiter
-SO <- read.csv(csv_file, header = TRUE, sep=",")
+dataset <- read.csv(csv_file, header = TRUE, sep=",")
 
 # list of predictor vars by name
 excluded_predictors <- c("id")
-temp <- SO
-SO <- SO[ , !(names(SO) %in% excluded_predictors)]
+temp <- dataset
+dataset <- dataset[ , !(names(dataset) %in% excluded_predictors)]
 
 # if any, exclude rows with Na, NaN and Inf (missing values)
-SO <- na.omit(SO)
+dataset <- na.omit(dataset)
 
 load(file = args[3])
 
-p <- predict(m,SO)
+p <- predict(m,dataset)
 pred = p$predictions
 
 
