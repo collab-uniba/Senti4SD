@@ -16,7 +16,7 @@ $ git lfs clone https://github.com/collab-uniba/Senti4SD.git
 ### How do I get set up? ###
 To set up the tool, simply run the following script from the command line:
 ```bash
-$ ./requirements.sh
+$ sh requirements.sh
 ```
 To run the script you need:
 
@@ -33,15 +33,16 @@ The script will also install, if not already present, three R packages:
 To classify your data using Senti4SD, execute the following instruction from the command line:
 
 ```bash
-$ ./classificationTask.sh inputCorpus.csv outputPredictions.csv
+$ cd ClassificationTask
+$ sh classificationTask.sh inputCorpus.csv outputPredictions.csv
 
 ```
 where `inputCorpus.csv` is a file containing the data you want to classify, considering a document for each line, and `outputPredictions.csv` is where the predictions will be saved. This last parameter is optional, if not present the output of the classification will be saved in a file called `predictions.csv`.
 
 To see how the tool works, you can execute the following example:
 ```
-$ ./classificationTask.sh Sample.csv
-
+$ cd ClassificationTask
+$ sh classificationTask.sh Sample.csv
 ```
 
 This will produce as output a csv file called `predictions.csv`.
@@ -49,4 +50,4 @@ This will produce as output a csv file called `predictions.csv`.
 ### Who do I talk to? ###
 
 * Nicole Novielli, nicole.novielli@uniba.it
-* Fabio Calefato, fabio.calefato@uniba.it
+* [Fabio Calefato](https://github.com/bateman)
