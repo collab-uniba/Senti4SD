@@ -29,7 +29,7 @@ java -jar $SCRIPTDIR/Senti4SD.jar -F A -i $1 -W $SCRIPTDIR/dsm.bin -oc $SCRIPTDI
 #using model "L2-regularized L2-loss support vector classification (dual)",
 #with C=0.05 and as input "CBOW600_Bigram_NoVectDim.csv"
 #classification.R will output the result of the classification to $outputFile
-Rscript $SCRIPTDIR/classification.R $SCRIPTDIR/extractedFeatures.csv $outputFile
-rm $SCRIPTDIR/extractedFeatures.csv
+##Rscript $SCRIPTDIR/classification.R $SCRIPTDIR/extractedFeatures.csv $outputFile
+##rm $SCRIPTDIR/extractedFeatures.csv
 fi
 fi
