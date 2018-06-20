@@ -1,5 +1,5 @@
 ### [Senti4SD.jar](https://github.com/collab-uniba/Senti4SD/blob/master/ClassificationTask/Senti4SD.jar)
-Extracts feature from an input dataset. Creates an output csv with the features extracted.
+Extracts feature from an input dataset (1 or 2 columns (depends if the dataset have a label column) comma separated. Each line an text item to analyze). Creates an output csv with the features extracted.
 
 Command-line parameters:
  
