@@ -5,7 +5,7 @@ Senti4SD is trained and evaluated on a gold standard of over 4K posts extracted 
 
 ## Fair Use Policy
 Please, cite the following paper if you intend to use our tool for your own research:
-> Calefato, F., Lanubile, F., Maiorano, F. et al. Empir Software Eng (2018) 23: 1352. https://doi.org/10.1007/s10664-017-9546-9
+> Calefato, F., Lanubile, F., Maiorano, F., Novielli N. Empirical Software Engineering (2018) 23: 1352. https://doi.org/10.1007/s10664-017-9546-9
 
 **NOTE**: You will need to install [Git LFS](https://git-lfs.github.com) extension to check out this project. Once installed and initialized, simply run:
 
