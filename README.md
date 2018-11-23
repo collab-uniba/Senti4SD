@@ -1,7 +1,7 @@
 # Senti4SD
 
 Senti4SD is an emotion polarity classifier specifically trained to support sentiment analysis in developers' communication channels. 
-Senti4SD is trained and evaluated on a gold standard of over 4K posts extracted from Stack Overflow. 
+Senti4SD is trained and evaluated on a gold standard of over 4K posts extracted from Stack Overflow. It is part of the Collab Emotion Mining Toolkit, ([EMTk](https://github.com/collab-uniba/EMTk)).
 
 ## Fair Use Policy
 Please, cite the following paper if you intend to use our tool for your own research:
