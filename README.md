@@ -49,5 +49,5 @@ This will produce as output a csv file called `predictions.csv`.
 
 ### Who do I talk to? ###
 
-* Nicole Novielli, nicole.novielli@uniba.it
+* [Nicole Novielli] (mailto:nicole.novielli@uniba.it)
 * [Fabio Calefato](https://github.com/bateman)
