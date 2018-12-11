@@ -2,17 +2,32 @@
 SCRIPTDIR=$(dirname "$0")
 echo $SCRIPTDIR
 
+
 if [ -z "$1" ]; then
-    echo "Usage: classificationTash.sh input.csv [predictions.csv]"
+    echo "Usage: classificationTash1.sh input_directory [output_directory]"
 else
-if [ ! -f $1 ]; then
-    echo "File $1 not found!"
+if [ ! -d $1 ]; then
+    echo "$1 is not a directory!"
 else
-outputFile="$SCRIPTDIR/$2"
 if [ -z "$2" ]
 then
-	outputFile="$SCRIPTDIR/predictions.csv"
+	mkdir -p $SCRIPTDIR/output
+	outputdir="$SCRIPTDIR/output"
+	#echo "$outputdir"
+else
+	mkdir -p $SCRIPTDIR/$2
+	outputdir="$SCRIPTDIR/$2"
+	#echo "$outputdir"
 fi
+
+
+for i in $1/*
+do
+
+outputFile=${i##*/}
+echo "Processing file: $outputFile"
+
+outputfilepath="$outputdir/out_$outputFile"
 
 #-F A: all features to be considered
 #-i file_name: a file containg a document for every line
@@ -24,13 +39,15 @@ fi
 #-bl file_name: bigram's list to use for feature extraction. If not present default Senti4SD bigram's list will be used [optional]
 
 #java -jar $SCRIPTDIR/Senti4SD.jar -F A -i $1 -W $SCRIPTDIR/dsm.bin -oc $SCRIPTDIR/extractedFeatures.csv -vd 600
-java -jar $SCRIPTDIR/Senti4SD-fast.jar -F A -i $1 -W $SCRIPTDIR/dsm.bin -oc $SCRIPTDIR/extractedFeatures.csv -vd 600
+	java -jar $SCRIPTDIR/Senti4SD-fast.jar -F A -i $i -W $SCRIPTDIR/dsm.bin -oc $SCRIPTDIR/extractedFeatures.csv -vd 600
 
 #classificate using as model "modelLiblinear.Rda", builded with "LiblineaR",
 #using model "L2-regularized L2-loss support vector classification (dual)",
 #with C=0.05 and as input "CBOW600_Bigram_NoVectDim.csv"
 #classification.R will output the result of the classification to $outputFile
-Rscript $SCRIPTDIR/classification.R $SCRIPTDIR/extractedFeatures.csv $outputFile
-rm $SCRIPTDIR/extractedFeatures.csv
+	Rscript $SCRIPTDIR/classification.R $SCRIPTDIR/extractedFeatures.csv $outputfilepath
+	rm $SCRIPTDIR/extractedFeatures.csv
+done
 fi
 fi
+
