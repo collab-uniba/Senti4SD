@@ -1,6 +1,4 @@
-library(caret)
 library(data.table)
-## library(e1071) # for normality adjustment
 library(LiblineaR)
 
 #' Read Features
