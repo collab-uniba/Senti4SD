@@ -90,3 +90,35 @@ Senti4SD <- function(text, model, senti4sd.path) {
   file.remove(text.file)
   result
 }
+
+#' Senti4SD Chunked
+#'
+#' Runs Senti4SD on given pieces of text by splitting the input in
+#' different chunks and running Senti4SD on each chunk.
+#'
+#' @param text A character vector on which to run Senti4SD.
+#' @param model The LiblineaR model to use for prediction.
+#' @param senti4sd.path Path where Senti4SD jar file is located.
+#' @param chunk.size Maximum number of text element to consider for
+#'   one single run of Senti4SD.
+#' @param memory.limit Maximum amount of memory (in GB) to use for one
+#'   run of Senti4SD. Overrides \code{chunk.size} by setting it to
+#'   \code{500 * memory.limit}.
+#' @return A data.table object with text, id and (predicted) polarity
+#'   columns.
+Senti4SDChunked <- function(text, model, senti4sd.path,
+                            chunk.size=1000, memory.limit=0) {
+  if (memory.limit > 0) {
+    chunk.size <- 500 * memory.limit
+  }
+  chunks <- split(text, (1:length(text) - 1) %/% chunk.size)
+  rbindlist(lapply(1:length(chunks), function(i) {
+    chunk <- chunks[[i]]
+    message(sprintf("Running Senti4SD on chunk %d of size %d",
+                    i, length(chunk)))
+    t <- system.time(res <- Senti4SD(chunk, model, senti4sd.path))
+    message(sprintf("Senti4SD run on chunk %d in %.2f seconds",
+                    i, t["elapsed"]))
+    res
+  }))
+}
