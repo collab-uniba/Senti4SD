@@ -6,6 +6,17 @@ Does parameter tuning for each liblinear model in "modelsLiblinear" on input "ex
 "extractedFeaturesLABEL.csv" is generated via Senti4SD.jar with parameter '-L'. The input dataset for Senti4SD.jar must have 2 colums, one with text and one with label (dataset with no header)
 
 ---------------------
+
+### [NgramsExtraction.jar](https://github.com/collab-uniba/Senti4SD/blob/master/ClassificationTask/NgramsExtraction.jar)
+Extract from an input dataset lists of n-grams (uni- and bi-). Creates 2 files: UnigramsList and BigramsList.
+If input dataset has a label column add a 'true' in the command after your csv dataset.
+
+Example command-line:
+```
+java -jar NgramsExtraction.jar input.csv [true]
+```
+---------------------
+
 #### [trainModel.R](https://github.com/collab-uniba/Senti4SD/blob/master/ClassificationTask/Training/trainModel.R):
 
 usage: ```Rscript trainModel.R outputFolderName configFile.txt extractedFeaturesLABEL.csv```
