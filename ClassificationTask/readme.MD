@@ -17,3 +17,12 @@ Command-line parameters:
 java -jar Senti4SD-fast.jar -F A -i input.csv -W wordSpace.bin -oc output.csv -vd 600 [-L] [-ul unigramList -bl bigramList] 
 ```
 
+---------------------
+#### [classification.R](https://github.com/collab-uniba/Senti4SD/blob/master/ClassificationTask/classification.R)
+
+usage: ```Rscript classification.R extractedFeatures.csv predictions.csv [modelLiblinear.Rda]```
+
+"extractedFeatures.csv" is generated via Senti4SD-fast.jar
+"modelLiblinear.Rda" is generate with "trainModel.R"
+Parameter "modelLiblinear.Rda" is optional. If not present, the default model trained on StackOverflow will be used
+
