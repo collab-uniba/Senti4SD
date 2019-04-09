@@ -76,9 +76,8 @@ Predict <- function(model, features) {
 #' @return A data.table object with text, id and (predicted) polarity
 #'   columns.
 Senti4SD <- function(text, model, senti4sd.path) {
-  text <- gsub("\n", " ", text)
   text.file <- tempfile()
-  fwrite(data.table(text), text.file, row.names=FALSE, col.names=FALSE)
+  fwrite(data.table(gsub("\n", " ", text)), text.file, row.names=FALSE, col.names=FALSE)
   features <- Features(text.file, tempfile(), senti4sd.path, TRUE, TRUE)
   features <- na.omit(features)
   prediction <- Predict(model, features)
