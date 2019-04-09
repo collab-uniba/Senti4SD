@@ -112,11 +112,11 @@ Senti4SDChunked <- function(text, model, senti4sd.path,
   chunks <- split(text, (1:length(text) - 1) %/% chunk.size)
   rbindlist(lapply(1:length(chunks), function(i) {
     chunk <- chunks[[i]]
-    message(sprintf("Running Senti4SD on chunk %d of size %d",
-                    i, length(chunk)))
+    logging::loginfo("Running Senti4SD on chunk %d of size %d",
+                     i, length(chunk))
     t <- system.time(res <- Senti4SD(chunk, model, senti4sd.path))
-    message(sprintf("Senti4SD run on chunk %d in %.2f seconds",
-                    i, t["elapsed"]))
+    logging::loginfo("Senti4SD run on chunk %d in %.2f seconds",
+                     i, t["elapsed"])
     res
   }))
 }
