@@ -16,11 +16,4 @@ Command-line parameters:
 ```
 java -jar Senti4SD-fast.jar -F A -i input.csv -W wordSpace.bin -oc output.csv -vd 600 [-L] [-ul unigramList -bl bigramList] 
 ```
-### [NgramsExtraction.jar](https://github.com/collab-uniba/Senti4SD/blob/master/ClassificationTask/NgramsExtraction.jar)
-Extract from an input dataset lists of n-grams (uni- and bi-). Creates 2 files: UnigramsList and BigramsList.
-If input dataset has a label column add a 'true' in the command after your csv dataset.
 
-Example command-line:
-```
-java -jar NgramsExtraction.jar input.csv [true]
-```
